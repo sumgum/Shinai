@@ -1,0 +1,67 @@
+.p-time-log {
+    color: $font-color_topic;
+    font-size: $font-size_4l;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mq() {
+        font-size: $font-size_xl;
+    }
+    @include mq(slg) {
+        font-size: $font-size_xl;
+    }
+    &--study {
+        height: 100%;
+        &--on {
+            background-color: $color_default;
+        }
+        &--off {
+            background-color: $color_default-off;
+        }
+    }
+    &--rest {
+        height: 50%;
+        &--on {
+            background-color: $color_rest;
+        }
+        &--off {
+            background-color: $color_rest-off;
+        }
+        @include mq() {
+            height: 33.3%;
+        }
+    }
+    &--etc {
+        height: 25%;
+        &--on {
+            background-color: $color_etc;
+        }
+        &--off {
+            background-color: $color_etc-off;
+        }
+        @include mq() {
+            height: 33.3%;
+        }
+    }
+    &--switch {
+        height: 25%;
+        &--default {
+            background-color: $color_default;
+        }
+        &--study {
+            background-color: $color_default;
+        }
+        &--rest {
+            background-color: $color_rest;
+        }
+        &--etc {
+            background-color: $color_etc;
+        }
+        @include mq() {
+            height: 33.3%;
+        }
+    }
+}

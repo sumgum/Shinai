@@ -1,0 +1,127 @@
+.l-header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  color: $font-color_topic;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.15s;
+  &--default {
+      background-color: $color_default;
+  }
+  &--study {
+      background-color: $color_default;
+  }
+  &--rest {
+      background-color: $color_rest;
+  }
+  &--etc {
+      background-color: $color_etc;
+  }
+  &__menu {
+    margin-left: $space_xl;
+    box-sizing: border-box;
+    position: relative;
+    width: 40px;
+    height: 32px;
+    z-index: 3;
+    // &--active {
+    //     position: fixed;
+    // }
+  }
+  &__trigger {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    height: 4px;
+    border-radius: 4px;
+    position: absolute;
+    background-color: white;
+    &--top {
+        transition: .5s;
+        top: 0;
+        &--active {
+            transition: .5s;
+            transform: translateY(12px) rotate(-45deg);
+         }
+    }
+    &--center {
+        transition: .5s;
+        top: 14px;
+        &--active {
+            transition: .5s;
+            opacity: 0;
+        }
+    }
+    &--bottom {
+        transition: .5s;
+        bottom: 0;
+        &--active {
+            transition: .5s;
+            transform: translateY(-15px) rotate(45deg);
+        }
+    }
+  }
+  &__title {
+      font-size: $font-size_xl;
+  }
+  &__icon {
+    font-size: 40px;
+    margin-right: $space_xl;
+    &__element {
+        text-decoration: none;
+        color: $font-color_topic;
+        &:hover {
+            color: $font-color_topic;
+        }
+    }
+  }
+  &__nav {
+      display: block;
+      position: absolute;
+      background-color: $color_default;
+      height: 100vh;
+      transition: .5s;
+      padding-top: $space_6l;
+      @include mq() {
+        position: fixed;
+        width: 100%;
+        left: -100%;
+        height: 100vh;
+        top: 0;
+        &--active {
+            transition: .5s;
+            transform: translateX(100%);
+            z-index: 2;
+        }
+      }
+      @include mq(lg) {
+        position: fixed;
+        width: 350px;
+        left: -350px;
+        top: 0;
+        &--active {
+            transition: .5s;
+            transform: translateX(350px);
+            z-index: 2;
+        }
+      }
+      &__menu {
+          text-align: center;
+          &__item {
+              margin-bottom: $space_xl;
+              &__link {
+                  color: $font-color_topic;
+                  font-size: $font-size_xl;
+                  &:hover {
+                      text-decoration: none;
+                      color: $font-color_form;
+                      transition: .3s;
+                  }
+              }
+          }
+      }
+  }
+
+}

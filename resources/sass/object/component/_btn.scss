@@ -1,0 +1,45 @@
+.c-btn {
+	font-size: $font-size_default;
+	box-sizing: border-box;
+	padding: 10px 0 10px 0;
+	border: 4px solid #BCE0FD;
+	border-radius: 6px;
+	text-align: center;
+    color: $font-color_default;
+	display: block;
+    width: 150px;
+    font-weight: bold;
+    @include mq() {
+        background-color: $color_default;
+        color: $font-color_topic;
+        border: 4px solid $color_default;
+    }
+    &:hover {
+        border: 4px solid $color_default;
+        background-color: $color_default;
+        color: $font-color_topic;
+        text-decoration: none;
+    }
+    &--twitter {
+        width: 100%;
+    }
+    &--rest {
+        font-size: $font-size_default!important;
+        box-sizing: border-box!important;
+        padding: 5px!important;
+        text-align: center!important;
+        display: inline-block;
+        width: 100px!important;
+        font-weight: bold!important;
+        color: $font-color_topic!important;
+        border-radius: 6px;
+        &--on {
+            background-color: $color_rest!important;
+            border: 4px solid $color_rest!important;
+        }
+        &--off {
+            background-color: $color_rest-off!important;
+            border: 4px solid $color_rest-off!important;
+        }
+    }
+}

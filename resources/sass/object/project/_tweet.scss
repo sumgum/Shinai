@@ -1,0 +1,44 @@
+.p-tweet {
+    width: 560px;
+    display: flex;
+    border: 1px solid $color_sub4;
+    box-sizing: border-box;
+    margin-bottom: $space_l;
+    @include mq {
+        width: 100%;
+    }
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+    &__img-container {
+        width: 15%;
+        font-size: $font-size_xl;
+        padding: $space_m;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__element {
+            text-align: center;
+        }
+    }
+    &__text-container {
+        width: 85%;
+        padding-top: $space_m;
+        padding-bottom: $space_m;
+        padding-right: $space_m;
+        display: flex;
+        flex-direction: column;
+        &__element {
+            color: $font-color_form;
+            font-size: $font-size_default;
+            white-space:pre-wrap;
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+        &__edit {
+            color: $font-color_form;
+            font-size: $font-size_default;
+        }
+    }
+}

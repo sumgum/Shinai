@@ -1,0 +1,33 @@
+.p-img-drop-container {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: $color_sub4;
+    color: $font-color_topic;
+    font-size: $font-size_xl;
+    text-align: center;
+    padding-top: 18px;
+    position: relative;
+    &__img {
+        width: 150px;
+        height: 150px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 10px;
+        display: none;
+    }
+    &__input-file {
+        opacity: 0;
+        height: 150px;
+        width: 150px;
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &__text-container {
+        display: inline-block;
+    }
+
+}

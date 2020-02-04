@@ -1,0 +1,40 @@
+.l-main {
+    padding-bottom: 200px;
+    width: 100%;
+    min-height: 100vh;
+    &--top {
+        background-color: $color_sub5;
+        display: flex;
+        padding-bottom: 0;
+    }
+    &--default {
+        background-color: $color_sub1;
+        padding-top: $space_5l;
+        padding-bottom: $space_5l;
+        display: flex;
+        justify-content: center;
+        @include mq() {
+            padding-top: $space_l;
+            flex-direction: column;
+        }
+    }
+    &--study {
+        width: 100%;
+        display: flex;
+        @include mq() {
+            flex-direction: column;
+        }
+        &--default {
+            background-color: $color_sub2;
+        }
+        &--on {
+            background-color: $color_default-off;
+        }
+        &--off {
+            background-color: $color_rest-off;
+        }
+        &--etc {
+            background-color: $color_etc-off;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.p-img-container {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: $color_sub4;
+    // padding-top: #{(150px - ($font-size_xl + $space_s) * 3) / 2};
+    &__text {
+        color: $font-color_topic;
+        line-height: 150px;
+        // line-height: #{$font-size_xl + $space_s};
+        font-size: $font-size_xl;
+        text-align: center;
+    }
+}

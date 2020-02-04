@@ -1,0 +1,29 @@
+.p-study-time {
+    width: 220px;
+    font-size: $font-size_xl;
+    @include mq() {
+        width: 100px;
+        font-size: $font-size_default;
+    }
+    &:nth-of-type(2) {
+        margin-right: 0;
+    }
+    &__title {
+        color: $font-color_form;
+    }
+    &__result {
+        color: $font-color_topic;
+        text-align: center;
+        line-height: 60px;
+        height: 60px;
+        &--done {
+            background: $color_default;
+        }
+        &--rest {
+            background: $color_rest;
+        }
+        &--etc {
+            background: $color_etc;
+        }
+    }
+}

@@ -1,0 +1,265 @@
+.p-container{
+    &--form {
+        width: 600px;
+        @include mq() {
+            width: 100%;
+        }
+        &__title {
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: $font-size_xl;
+            background-color: $color_default;
+            color: $font-color_topic;
+        }
+        &__body {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid $color_default;
+            background-color: $color_sub2;
+            padding-top: $space_4l;
+            padding-bottom: $space_xxl;
+            padding-right: $space_xxl;
+            padding-left: $space_xxl;
+        }
+        &__textarea {
+            width: 100%;
+            font-size: $font-size_default;
+            padding: $space_m;
+            border: 1px solid $font-color_form;
+        }
+        &__label {
+            color: $font-color_form;
+            font-size: $font-size_default;
+        }
+        &__img {
+            display: flex;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: space-around;
+            font-size: $font-size_3l;
+        }
+    }
+    &--top {
+        box-sizing: border-box;
+        width: 100%;
+        height: calc(100vh - 60px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include mq() {
+            justify-content: flex-end;
+            flex-direction: column-reverse;
+            height: auto;
+        }
+        &__demo {
+            height: 100%;
+            width: 50%;
+            @include mq() {
+                width: 100%;
+                height: 30%;
+            }
+        }
+        &__text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+        }
+        &__title {
+            font-size: $font-size_4l;
+            margin-bottom: $space_xl;
+        }
+        &__body {
+            font-size: $font-size_4l;
+            margin-bottom: $space_3l;
+            text-align: center;
+            @include mq() {
+                font-size: $font-size_xl;
+                padding-top: $space_l;
+            }
+            &__element {
+                font-size: $font-size_xl;
+                text-align: center;
+            }
+        }
+        &__bottom {
+            display: flex;
+            justify-content: space-around;
+        }
+    }
+    &--mypage {
+        display: flex;
+        @include mq() {
+            flex-direction: column;
+        }
+    }
+    &--result {
+        width: 770px;
+        margin-right: 50px;
+        @include mq() {
+            width: 100%;
+            margin-right: 0;
+            margin-bottom: $space_l;
+        }
+        &__title {
+            font-size: $font-size_xl;
+            color: $font-color_topic;
+            background-color: $color_default;
+            text-align: center;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+        }
+        &__body {
+            height: 350px;
+            background-color: $color_sub2;
+            border: 1px solid $color_default;
+            box-sizing: border-box;
+            &__content {
+                margin-top: 20px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+    }
+    &--prof {
+        width: 330px;
+        background-color: $color_sub2;
+        border: 1px solid $color_default;
+        box-sizing: border-box;
+        margin-bottom: $space_l;
+        @include mq() {
+            width: 100%;
+        }
+        &__title {
+            font-size: $font-size_l;
+            color: $font-color_topic;
+            background-color: $color_default;
+            text-align: center;
+            width: 150px;
+            height: 50px;
+            line-height: 50px;
+        }
+        &__body {
+            padding: $space_xl;
+            &__img {
+                display: block;
+                margin-right: auto;
+                margin-left: auto;
+                width: 200px;
+                height: 200px;
+                border-radius: 10px;
+                box-sizing: border-box;
+                margin-bottom: $space_xl;
+            }
+            &__txt {
+                font-size: $font-size_l;
+                color: $font-color_default;
+                margin-bottom: $space_xl;
+            }
+            &__btn {
+                @include mq() {
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    &--config {
+        width: 330px;
+        background-color: $color_sub2;
+        border: 1px solid $color_default;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: $font-size_xl;
+        padding: $space_l;
+        @include mq() {
+            width: 100%;
+        }
+        &__element {
+            &:hover {
+                color: $color_default;
+                text-decoration: none;
+            }
+        }
+    }
+    &--study {
+        width: 50%;
+        $header-height: 60px;
+        height: calc(100vh - #{$header-height});
+        &--left {
+            padding: $space_xl;
+            @include mq() {
+                width: 100%;
+                padding-bottom: 0;
+                height: calc((100vh - #{$header-height})/4);
+            }
+        }
+        &--right {
+            padding: $space_xl;
+            @include mq() {
+                width: 100%;
+                padding-top: 0;
+                height: calc((100vh - #{$header-height})*3/4);
+            }
+        }
+    }
+    &--category {
+        width: 180px;
+        height: 240px;
+        background-color: $color_sub2;
+        border: 1px solid $color_default;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        box-sizing: border-box;
+        margin-right: $space_xl;
+        @include mq() {
+            width: 100%;
+            height: 60px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        &__element {
+            padding: $space_m;
+            color: $font-color_default;
+            font-size: $font-size_xl;
+            @include mq() {
+                font-size: $font-size_l;
+                padding: 0;
+            }
+        }
+    }
+    &--timeline {
+        width: 600px;
+        background-color: $color_sub2;
+        border: 1px solid $color_default;
+        box-sizing: border-box;
+        padding: $space_xl;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        @include mq() {
+            width: 100%;
+            margin-top: $space_m;
+            padding: $space_m;
+        }
+    }
+    &--paginate {
+        color: $font-color_form;
+        font-size: $font-size_xl;
+        &__container {
+            display: flex;
+            justify-content: center;
+        }
+        &__paginate {
+            border: 1px solid $font-color_form;
+            box-sizing: border-box;
+        }
+
+    }
+}

@@ -1,0 +1,14 @@
+.u-display {
+    &--md {
+        display: none;
+        @include mq() {
+            display: block;
+        }
+    }
+    &--slg {
+        display: none;
+        @include mq(slg) {
+            display: block;
+        }
+    }
+}
