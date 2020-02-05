@@ -46,9 +46,9 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'shinai.sakura.ne.jp'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'shinai'),
+            'database' => env('DB_DATABASE', 'shinai_shinai'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'root'),
             'unix_socket' => env('DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock'),
