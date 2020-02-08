@@ -51,7 +51,7 @@ return [
             'database' => env('DB_DATABASE', 'shinai_shinai'),
             'username' => env('DB_USERNAME', 'shinai'),
             'password' => env('DB_PASSWORD', 'appleapple1'),
-            'unix_socket' => env('DB_SOCKET', '/Applications/MAMP/tmp/mysql/mysql.sock'),
+            'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
