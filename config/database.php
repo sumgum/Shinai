@@ -46,7 +46,7 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', 'shinai.sakura.ne.jp'),
+            'host' => env('DB_HOST', 'mysql748.db.sakura.ne.jp'),
             'port' => env('DB_PORT', '3306'),
             'database' => env('DB_DATABASE', 'shinai_shinai'),
             'username' => env('DB_USERNAME', 'shinai'),
