@@ -23,8 +23,11 @@ class ProfEditController extends Controller
             'prof_image' => 'file|image|mimes:jpeg,png,jpg,gif|max:2097152|nullable',
         ]
         );
+
         $image = $request->prof_image;
-        if($request->user_name === null){ $request->replace(['user_name'=>'名無し']);}
+        // user_nameとuser_targetは入力値がnullの場合、空文字を代入
+        if($request->user_name === null){$request->merge(['user_name'=>'名無し']);}
+        if($request->user_target === null){$request->merge(['user_target'=>'']);}
         if(Auth::user()->userDetail()->count()>0) {
             // >>>>> 更新処理 >>>>>
             $user_detail = Auth::user()->userDetail()->first();
@@ -53,7 +56,7 @@ class ProfEditController extends Controller
             }
             // >>>>> 新規登録処理終了 >>>>>
         }
-        return redirect()->route('mypage.show', compact('id'));
+        return redirect()->route('mypage.show', compact('id'))->with('flash_message', 'プロフィールが変更されました!');
         // return view('users.study')->with('flash_message', 'プロフィールを編集しました。');
     }
 

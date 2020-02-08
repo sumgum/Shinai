@@ -1,6 +1,6 @@
 <template>
     <div>
-        <transition>
+        <transition name="modal">
         <div class="p-modal" v-if="modalFlg">
             <div class="p-modal__mask">
                 <div class="p-modal__container">
@@ -19,6 +19,7 @@
                         <form class="p-modal__body__form" action="" method="POST">
                             <label class="p-modal__body__form__label" for="">コメント</label>
                             <textarea class="p-modal__body__form__comment" name="" id="" cols="40" rows="10" v-model="comment"></textarea>
+                            <div class="p-modal__body__form__word-num">{{commentLength}}/400</div>
                             <div class="p-modal__body__form__btn-container">
                                 <p><a @click.prevent="closeModal" href="" class="c-btn">戻る</a></p>
                             <input type="submit" class="c-btn" value="記録" @click.prevent="sendForm">
@@ -61,6 +62,12 @@
 
             <p class="l-header__icon"><a :href="mypage" class="l-header__icon__element"><i class="fa fa-user" aria-hidden="true"></i></a></p>
         </header>
+
+        <transition>
+            <div v-if="flashMessage" class="c-flash-msg c-flash-msg--success js-flash">
+                {{flashMessage}}
+            </div>
+        </transition>
 
         <div class="l-main--study">
             <div class="p-container--study p-container--study--left">
@@ -109,6 +116,7 @@ axios.defaults.headers.common = {
         props: {
             logout: String,
             mypage: String,
+            flashMessage: String,
         },
         data: function() {
             return initialState()
@@ -206,15 +214,12 @@ axios.defaults.headers.common = {
                 this.closeModal()
             },
             sendForm: function() {
-                // console.log(this.request.has_comment)
                 axios.post('/study', this.request)
                 .then(function(response) {
-                    // console.log(response)
                     setTimeout(function() {
                         window.location.href = response.data
                     }, 100)
                 }).catch(function(error) {
-                    // console.log(error);
                 })
             },
             toggleMenuFlg: function() {
@@ -224,7 +229,6 @@ axios.defaults.headers.common = {
             doLogout: function() {
                 axios.post(this.logout)
                 .then(function(response) {
-                    console.log(response)
                     setTimeout(() => {
                         window.location.href = '/top'
                     }, 100);
@@ -329,6 +333,18 @@ axios.defaults.headers.common = {
                     'l-header__trigger--bottom--active': (this.menuFlg)? true:false,
                 }
             },
+            commentLength: function() {
+                return this.comment.length
+            }
         },
     }
 </script>
+
+<style scoped>
+    .modal-enter-active, .modal-leave-active {
+        transition: opacity .3s;
+    }
+    .modal-enter, .modal-leave-to {
+        opacity: 0;
+    }
+</style>

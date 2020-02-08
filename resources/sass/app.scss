@@ -36,13 +36,14 @@
 @import "object/component/_form";
 @import "object/component/_img";
 @import "object/component/_dropbox";
+@import "object/component/_flash-msg";
 
 // -----------------------------------------------------------------
 // Project
 // -----------------------------------------------------------------
 
 @import "object/project/_container";
-@import "object/project/_form";
+// @import "object/project/_form";
 @import "object/project/_img-container";
 @import "object/project/_study-time";
 @import "object/project/_time-log";
