@@ -12,10 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('free.top');
+    return view('welcome');
 });
 
 Route::get('/top', 'TopController@show')->name('top.show');
+// Route::get('/login', 'LoginController@show')->name('login.show');
+// Route::get('/register', 'RegisterController@show')->name('register.show');
+// Route::get('/contact', 'ContactController@show')->name('contact.show');
+// Route::get('/passedit', 'PassEditController@show')->name('passedit.show');
+// Route::get('/passremindsend', 'PassRemindSendController@show')->name('passremindsend.show');
+// Route::get('/passremindrecieve', 'PassRemindRecieveController@show')->name('passremindrecieve.show');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/profedit/{id}', 'ProfEditController@show')->name('profedit.show');
@@ -31,5 +37,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/timeline/update', 'TimelineController@update')->name('timeline.update');
 });
 
+
 Auth::routes();
 
+Route::get('/home', 'HomeController@index')->name('home');

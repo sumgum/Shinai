@@ -53,13 +53,12 @@ class TimelineController extends Controller
             'id' => 'required|integer',
             'user_id' => 'required|integer',
             'comment' => 'string|max:400|nullable',
-            'has_comment' => 'required|boolean',
         ]);
         if($request->user_id !== Auth::user()->id) {
-            return redirect('/timeline')->with('warn_message', '不正な操作が行われました');
+            return redirect('/timeline')->with('flash_message', '不正な操作が行われました');
         }
         $study_id = $request->id;
-        StudyRecord::find($study_id)->update(['comment' => $request->comment, 'has_comment' => $request->has_comment]);
+        StudyRecord::find($study_id)->update(['comment' => $request->comment]);
         return $request->id;
     }
 }

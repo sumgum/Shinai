@@ -52,14 +52,6 @@ html, body {
   letter-spacing: 0.1em;
 }
 
-textarea {
-    font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    text-size-adjust: 100%;
-    letter-spacing: 0.1em;
-    font-weight: normal;
-    color: $font-color_form;
-}
-
 p, a {
   -webkit-font-smoothing: antialiased;
 }
@@ -75,8 +67,6 @@ a:hover {
 }
 
 $breakpoints: (
-    // small device
-    'sd': 'screen and (max-width: 411px)',
     // midium device
     'md': 'screen and (max-width: 768px)',
     // semi large device

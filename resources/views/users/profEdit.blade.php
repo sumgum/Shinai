@@ -7,28 +7,10 @@
         <div class="p-container--form__body">
             <form action="{{route('profedit.update', $id)}}" method="POST" enctype="multipart/form-data">
                 @csrf
-
-                @error('user_name')
-                    <span class="c-form__msg--error" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
                 <label for="" class="p-container--form__label">名前: 20文字以内で入力してください</label>
                 <input type="text" name="user_name" class="c-form" value="@if($user_detail['user_name']){{$user_detail['user_name']}}@endif">
-
-                @error('user_target')
-                    <span class="c-form__msg--error" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
                 <label for="" class="p-container--form__label">目標: 50文字以内で入力してください</label>
                 <input type="text" name="user_target" class="c-form" value="@if($user_detail['user_target']){{$user_detail['user_target']}}@endif">
-
-                @error('prof_image')
-                    <span class="c-form__msg--error" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
                 <div class="p-container--form__img u-mb-40">
                     @if($user_detail['prof_image'])
                     <p><img class="c-img--m" src="{{asset($user_detail['prof_image'])}}" alt=""  class="c-img--m"></p>

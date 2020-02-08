@@ -5,11 +5,7 @@
     :prev-text="'<'"
     :next-text="'>'"
     :container-class="'p-container--paginate__container'"
-    :page-class="'p-container--paginate__page'"
-    :page-link-class="'p-container--paginate__page-link'"
-    :break-view-class="'p-container--paginate__break-view-class'"
-    :prev-link-class="'p-container--paginate__prev-link'"
-    :next-link-class="'p-container--paginate__next-link'"
+    :page-link-class="'p-container--paginate__paginate'"
     :active-class="'p-container--paginate__active'">
     </paginate>
 </template>

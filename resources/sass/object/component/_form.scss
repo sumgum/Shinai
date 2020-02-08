@@ -12,14 +12,4 @@
     &::placeholder {
         color: $font-color_placeholder;
     }
-    &:focus {
-        outline: none;
-        border: 1px solid $font-color_default;
-        background-color: $color_default-off;
-    }
-    &__msg {
-        &--error {
-            color: $color_rest;
-        }
-    }
 }

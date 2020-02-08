@@ -11,7 +11,6 @@
 
         <div>
             <div class="p-container--timeline">
-                <transition-group>
                 <timeline-contents-component
                 v-for="(studyRecord, index) in this.showRecords"
                 :key="studyRecord.id"
@@ -21,7 +20,6 @@
                 :study_id="studyRecord.id"
                 @click-star="favHandle">
                 </timeline-contents-component>
-                </transition-group>
 
                 <div class="p-container--paginate">
                     <paginate-component
@@ -113,6 +111,11 @@
             favHandle: function(id) {
                 this.toggleFavRecords(id)
                 axios.post('/timeline/favorite', {fav_user_id: id})
+                // .then(function(response) {
+                //     console.log(response)
+                // }).catch(function(error) {
+                //     console.log(error)
+                // })
             },
             toggleFavRecords: function(id) {
                 this.ope_studyRecords.forEach(function(element, index, array) {
@@ -146,6 +149,34 @@
                 }
                 return val
             },
+            // categoryFilteredStudyRecords: function() {
+            //     this.ope_studyRecords = this.ope_studyRecords.filter(function(elm) {
+            //         if(this.categories[0].isChecked === true) {
+            //             true
+            //         } else {
+            //             // チェックが付いていない処理内容のレコードをfilterではじく
+            //             if(this.categories[1].isChecked === false){elm.user_id !== this.authID}
+            //             if(this.categories[2].isChecked === false){elm.fav_flg !== true}
+            //             if(this.categories[3].isChecked === false){elm.fav_flg !== false}
+            //         }
+            //     }, this)
+            // },
+
+            // categoryFilteredStudyRecords: function() {
+            //     return this.ope_studyRecords.forEach(function(elm) {
+            //         if(this.categories[0].isChecked === true) {
+            //             true
+            //         } else {
+            //             // チェックが付いていない処理内容のレコードをfilterではじく
+            //             if(this.categories[1].isChecked === false){elm.user_id !== this.authID}
+            //             if(this.categories[2].isChecked === false){elm.fav_flg !== true}
+            //             if(this.categories[3].isChecked === false){elm.fav_flg !== false}
+            //         }
+            //     }, this)
+            // },
+            // showRecords: function() {
+            //     return this.categoryFilteredStudyRecords.slice(this.currentMinRecordNum, this.currentMaxRecordNum)
+            // }
             showRecords: function() {
                 return this.ope_studyRecords.slice(this.currentMinRecordNum, this.currentMaxRecordNum)
             }
@@ -166,12 +197,3 @@
         }
     }
 </script>
-
-<style>
-    .v-enter-active {
-        transition: opacity 1s;
-    }
-    .v-enter, .v-leave-to {
-        opacity: 0;
-    }
-</style>

@@ -1,5 +1,5 @@
 <template>
-    <p @click="toggleEvent" class="p-container--category__element"><i class="fa u-trans3" :class="categoryClass" aria-hidden="true"></i> {{text}}</p>
+    <p @click="toggleEvent" class="p-container--category__element"><i class="fa" :class="categoryClass" aria-hidden="true"></i> {{text}}</p>
 </template>
 
 <script>

@@ -1,19 +1,15 @@
 @extends('layouts.app')
 
-@section('flash_message')
-    @if(session('status'))
-    <div class="c-flash-msg c-flash-msg--success js-flash">
-        {{session('status')}}
-    </div>
-    @endif
-@endsection
-
-
 @section('content')
 <div class="p-container--form">
 
     <h2 class="p-container--form__title">パスワードリセット</h2>
     <div class="p-container--form__body">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <form action="{{route('password.email')}}" method="POST">
             @csrf
             <input id="email" type="email" class="c-form @error('email') c-form--error @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス">

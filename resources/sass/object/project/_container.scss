@@ -11,8 +11,6 @@
             font-size: $font-size_xl;
             background-color: $color_default;
             color: $font-color_topic;
-            border-top-left-radius: 2px;
-            border-top-right-radius: 2px;
         }
         &__body {
             width: 100%;
@@ -23,8 +21,6 @@
             padding-bottom: $space_xxl;
             padding-right: $space_xxl;
             padding-left: $space_xxl;
-            border-bottom-left-radius: 2px;
-            border-bottom-right-radius: 2px;
         }
         &__textarea {
             width: 100%;
@@ -111,7 +107,6 @@
             font-size: $font-size_xl;
             color: $font-color_topic;
             background-color: $color_default;
-            border-bottom-right-radius: 2px;
             text-align: center;
             width: 150px;
             height: 50px;
@@ -121,7 +116,6 @@
             height: 350px;
             background-color: $color_sub2;
             border: 1px solid $color_default;
-            border-radius: 2px;
             box-sizing: border-box;
             &__content {
                 margin-top: 20px;
@@ -135,7 +129,6 @@
         width: 330px;
         background-color: $color_sub2;
         border: 1px solid $color_default;
-        border-radius: 2px;
         box-sizing: border-box;
         margin-bottom: $space_l;
         @include mq() {
@@ -145,7 +138,6 @@
             font-size: $font-size_l;
             color: $font-color_topic;
             background-color: $color_default;
-            border-bottom-right-radius: 2px;
             text-align: center;
             width: 150px;
             height: 50px;
@@ -180,7 +172,6 @@
         width: 330px;
         background-color: $color_sub2;
         border: 1px solid $color_default;
-        border-radius: 2px;
         box-sizing: border-box;
         text-align: center;
         font-size: $font-size_xl;
@@ -221,7 +212,6 @@
         height: 240px;
         background-color: $color_sub2;
         border: 1px solid $color_default;
-        border-radius: 2px;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -248,7 +238,6 @@
         width: 600px;
         background-color: $color_sub2;
         border: 1px solid $color_default;
-        border-radius: 2px;
         box-sizing: border-box;
         padding: $space_xl;
         display: flex;
@@ -263,51 +252,14 @@
     &--paginate {
         color: $font-color_form;
         font-size: $font-size_xl;
-        width: 300px;
-        margin-top: $space_m;
-        margin-right: auto;
-        margin-left: auto;
         &__container {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        &__page {
-            width: 30px;
-            height: 30px;
-            border: 1px solid $font-color_form;
-            border-radius: 3px;
-        }
-        &__page-link {
-            display: inline-block;
-            width: 100%;
-            height: 100%;
-            box-sizing: border-box;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            &:focus {
-                outline: none;
-            }
         }
-        &__break-view-class {
-            border: none;
-        }
-        &__prev-link {
-            &:focus {
-                outline: none;
-            }
-        }
-        &__next-link {
-            &:focus {
-                outline: none;
-            }
-        }
-        &__active {
-            width: 38px;
-            height: 38px;
+        &__paginate {
             border: 1px solid $font-color_form;
-            border-radius: 3px;
+            box-sizing: border-box;
         }
+
     }
 }

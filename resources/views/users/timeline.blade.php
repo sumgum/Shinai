@@ -9,13 +9,6 @@
         :mypage = "'{{route('mypage.show', ['id'=>Auth::user()->id])}}'"
     >
     </header-component>
-
-    @if(session('warn_message'))
-    <div class="c-flash-msg c-flash-msg--warn js-flash">
-        {{session('warn_message')}}
-    </div>
-    @endif
-
     <timeline-component
         :study-records="{{$study_records}}"
         :auth_id="{{Auth::user()->id}}">

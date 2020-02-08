@@ -18,8 +18,7 @@
             <textarea
             class="p-tweet__text-container__element p-tweet__text-container__edit"
             v-if="isUser&&isEdit"
-            v-model="textareaVal" ref="adjust_textarea"
-            @keydown="adjustHeight"></textarea>
+            v-model="textareaVal" ref="adjust_textarea" @keydown="adjustHeight"></textarea>
             <p v-if="!isEdit" class="p-tweet__text-container__element">{{textareaVal}}</p>
             <p class="p-tweet__text-container__element">{{created_at}}</p>
         </div>
@@ -110,17 +109,11 @@ axios.defaults.headers.common = {
                 let url = '/mypage/' + String(this.user_id)
                 return url
             },
-            hasComment: function() {
-                let url = true
-                if(!this.textareaVal){url = false}
-                return url
-            },
             request: function() {
                 return {
                     id: this.study_id,
                     user_id: this.user_id,
                     comment: this.textareaVal,
-                    has_comment: this.hasComment
                 }
             }
         },

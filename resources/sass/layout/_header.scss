@@ -26,9 +26,9 @@
     width: 40px;
     height: 32px;
     z-index: 3;
-    &--active {
-        position: fixed;
-    }
+    // &--active {
+    //     position: fixed;
+    // }
   }
   &__trigger {
     box-sizing: border-box;
@@ -65,12 +65,6 @@
   }
   &__title {
       font-size: $font-size_xl;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      @include mq(sd) {
-          font-size: $font-size_l;
-      }
   }
   &__icon {
     font-size: 40px;
@@ -126,9 +120,6 @@
                       transition: .3s;
                   }
               }
-          }
-          &--active {
-              position: fixed!important;
           }
       }
   }

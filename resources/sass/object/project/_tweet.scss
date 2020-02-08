@@ -2,7 +2,6 @@
     width: 560px;
     display: flex;
     border: 1px solid $color_sub4;
-    border-radius: 2px;
     box-sizing: border-box;
     margin-bottom: $space_l;
     @include mq {
@@ -32,9 +31,7 @@
         &__element {
             color: $font-color_form;
             font-size: $font-size_default;
-            line-height: 1.6;
             white-space:pre-wrap;
-            overflow-wrap: break-word;
             &:last-of-type{
                 margin-bottom: 0;
             }
@@ -42,10 +39,6 @@
         &__edit {
             color: $font-color_form;
             font-size: $font-size_default;
-            line-height: 1.6;
-            &:focus {
-                outline: none;
-            }
         }
     }
 }

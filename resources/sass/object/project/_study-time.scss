@@ -18,16 +18,12 @@
         height: 60px;
         &--done {
             background: $color_default;
-            border-top-left-radius: 2px;
-            border-top-right-radius: 2px;
         }
         &--rest {
             background: $color_rest;
         }
         &--etc {
             background: $color_etc;
-            border-bottom-left-radius: 2px;
-            border-bottom-right-radius: 2px;
         }
     }
 }

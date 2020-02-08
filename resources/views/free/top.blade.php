@@ -10,7 +10,7 @@
         </div>
         <div class="p-content--top__text">
             <div class="p-container--top__body">
-                <div class="p-container--top__title">『しない』<br class="u-display--title">を記録しよう</div>
+                <div class="p-container--top__title">『しない』<br class="u-display--md">を記録しよう</div>
                 <div class="p-container--top__body__element">
                     <p><i class="c-btn--rest c-btn--rest--off">しない</i>を押して<br class="u-display--md">積極的にサボろう！</p>
                     <p>しないをやめるときは</p>

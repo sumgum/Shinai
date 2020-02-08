@@ -1,0 +1,29 @@
+.p-form {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    color: $font-color_form;
+    font-size: $font-size_default;
+    &__element {
+        width: 100%;
+        height: 50px;
+    }
+    &__label {
+        vertical-align: middle;
+        text-align: center;
+        font-size: $font-size_m;
+        height: 100%;
+        width: 25%;
+        line-height: 50px;
+        box-sizing: border-box;
+        background-color: $color_default;
+        color: $font-color_topic;
+
+    }
+    &__input {
+        margin: 0;
+        width: 75%;
+        height: 100%;
+        box-sizing: border-box;
+    }
+}
