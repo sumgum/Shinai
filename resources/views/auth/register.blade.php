@@ -8,15 +8,13 @@
         <form action="{{route('register')}}" method="POST">
             @csrf
 
-            <input id="email" type="email" class="c-form @error('email') c-form--error @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス">
-
             @error('email')
                 <span class="c-form__msg--error" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
 
-            <input id="password" type="password" class="c-form @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="パスワード">
+            <input id="email" type="email" class="c-form @error('email') c-form--error @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="メールアドレス">
 
             @error('password')
                 <span class="c-form__msg--error" role="alert">
@@ -24,7 +22,10 @@
                 </span>
             @enderror
 
-            <input id="password-confirm" type="password" class="c-form" name="password_confirmation" required autocomplete="new-password" placeholder="パスワード再入力">
+            <input id="password" type="password" class="c-form @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="パスワード(8文字以上)">
+
+
+            <input id="password-confirm" type="password" class="c-form" name="password_confirmation" required autocomplete="new-password" placeholder="パスワード(再入力)">
 
             <div class="p-container--form__btn u-fx u-jc">
                 <input type="submit" class="c-btn " value="登録する">

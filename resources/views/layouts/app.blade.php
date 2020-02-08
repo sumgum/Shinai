@@ -19,6 +19,8 @@
         </header-component>
     </div>
 
+    @yield('flash_message')
+
     <main class="l-main  @yield('class', 'l-main--default')">
         @yield('content')
     </main>

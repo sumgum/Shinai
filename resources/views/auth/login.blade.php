@@ -7,9 +7,15 @@
     <div class="p-container--form__body">
         <form action="{{route('login')}}" method="POST">
             @csrf
+            @error('email')
+                <span class="c-form__msg--error" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+
             <input id="email" type="email" class="c-form @error('email') c-form--error @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="メールアドレス">
 
-            @error('email')
+            @error('password')
                 <span class="c-form__msg--error" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
@@ -17,11 +23,6 @@
 
             <input id="password" type="password" class="c-form @error('password') c-form--error @enderror" name="password" required autocomplete="current-password" placeholder="パスワード">
 
-            @error('password')
-                <span class="c-form__msg--error" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-            @enderror
 
             <label for="" class="u-mb-20 u-b"><input class="" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}> 次回ログインを省略する</label>
 

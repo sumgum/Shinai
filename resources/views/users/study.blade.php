@@ -3,16 +3,14 @@
 
 <div id="demo"></div>
 <div id="app">
-    {{-- <header-component
-        :authcheck = "@auth true @endauth @guest false @endauth"
-        :logout = "'{{route('logout')}}'"
-    >
-    </header-component> --}}
     <study-component
     :logout = "'{{route('logout')}}'"
     :mypage = "'{{route('mypage.show', ['id'=>Auth::user()->id])}}'"
+    @if(session('flash_message'))
+    :flash-message = "'{{session('flash_message')}}'"
+    @endif
     >
-</study-component>
+    </study-component>
 </div>
 
 @component('components.footer')

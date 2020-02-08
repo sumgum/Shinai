@@ -11,4 +11,10 @@
             display: block;
         }
     }
+    &--title {
+        display: none;
+        @media screen and (max-width: 1010px) {
+            display: block;
+        }
+    }
 }

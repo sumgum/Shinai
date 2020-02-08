@@ -1,5 +1,13 @@
 @extends('layouts.app')
 
+@section('flash_message')
+    @if(session('flash_message'))
+    <div class="c-flash-msg c-flash-msg--success js-flash">
+        {{session('flash_message')}}
+    </div>
+    @endif
+@endsection
+
 @section('content')
 <div class="p-container--mypage">
     <div class="p-container--result">

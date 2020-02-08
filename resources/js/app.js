@@ -6,6 +6,7 @@
 
 // require('./bootstrap');
 require('./img_uploader');
+require('./flash_message');
 window._ = require('lodash');
 window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -43,6 +44,11 @@ Vue.component('study-demo-component', require('./components/StudyDemoComponent.v
 const app = new Vue({
     el: '#app',
 });
-const demo = new Vue({
-    el: '#demo',
-})
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById("demo")) {
+        const demo = new Vue({
+            el: '#demo',
+        })
+    }
+  }, false);

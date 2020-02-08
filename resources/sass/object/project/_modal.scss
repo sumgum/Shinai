@@ -91,12 +91,16 @@
                 }
                 &--study {
                     background-color: $color_default;
+                    border-top-left-radius: 2px;
+                    border-bottom-left-radius: 2px;
                 }
                 &--rest {
                     background-color: $color_rest;
                 }
                 &--etc {
                     background-color: $color_etc;
+                    border-top-right-radius: 2px;
+                    border-bottom-right-radius: 2px;
                 }
             }
         }
@@ -112,11 +116,16 @@
                 height: 150px;
                 padding: $space_m;
                 font-size: $font-size_default;
-                margin-bottom: $space_xl;
+                margin-bottom: $space_m;
                 border: 2px solid $font_color_form;
                 box-shadow: none;
                 border-radius: 5px;
                 resize: none;
+            }
+            &__word-num {
+                color: $font-color_form;
+                font-size: $font-color_default;
+                margin-bottom: $space_xl;
             }
             &__btn-container {
                 display: flex;

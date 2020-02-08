@@ -13,10 +13,10 @@ class MypageController extends Controller
 {
     public function show($id) {
         if(!ctype_digit($id)) {
-            return redirect('/timeline')->with('flash_message', '不正な操作が行われました');
+            return redirect('/timeline')->with('warn_message', '不正な操作が行われました');
         }
         if(DB::table('users')->where('id', $id)->doesntExist()) {
-            return redirect('/timeline')->with('flash_message', '不正な操作が行われました');
+            return redirect('/timeline')->with('warn_message', '不正な操作が行われました');
         }
         // >>>>> 学習記録集計処理開始 >>>>>
         $mode = array(

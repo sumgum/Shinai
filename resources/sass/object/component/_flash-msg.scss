@@ -1,0 +1,19 @@
+.c-flash-msg {
+    text-align: center;
+    font-size: $font-size_xl;
+    width: 100%;
+    height: 60px;
+    box-sizing: border-box;
+    line-height: 60px;
+    @include mq() {
+        font-size: $font-size_m;
+    }
+    &--success {
+        background-color: $color_default-off;
+        color: $font-color_default;
+    }
+    &--warn {
+        background-color: $color_rest;
+        color: $font-color_topic;
+    }
+}
