@@ -74,7 +74,8 @@
   }
   &__icon {
     font-size: 40px;
-    margin-right: $space_xl;
+    position: absolute;
+    right: $space_xl;
     &__element {
         text-decoration: none;
         color: $font-color_topic;

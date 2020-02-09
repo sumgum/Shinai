@@ -11655,7 +11655,8 @@ a:hover {
 
 .l-header__icon {
   font-size: 40px;
-  margin-right: 20px;
+  position: absolute;
+  right: 20px;
 }
 
 .l-header__icon__element {
