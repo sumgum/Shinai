@@ -1,20 +1,19 @@
 @component('components.head')
 @endcomponent
 
-{{-- @component('components.header')
-@endcomponent --}}
-    {{-- @if(session('flash_message'))
-    <div class="c-flash-message">
-        {{session('flash_message')}}
-    </div>
-    @endif --}}
     <div id="app">
         <header-component
             :authcheck = "@auth true @endauth @guest false @endauth"
             @auth
             :logout = "'{{route('logout')}}'"
             :mypage = "'{{route('mypage.show', ['id'=>Auth::user()->id])}}'"
+            :study = "'{{route('study.show')}}'"
+            :timeline = "'{{route('timeline')}}'"
+            :withdraw = "'{{route('withdraw.show')}}'"
             @endauth
+            :login = "'{{route('login')}}'"
+            :register = "'{{route('register')}}'"
+            :top = "'{{route('top.show')}}'"
         >
         </header-component>
     </div>

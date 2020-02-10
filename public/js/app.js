@@ -2051,7 +2051,13 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     authcheck: Boolean,
     logout: String,
-    mypage: String
+    mypage: String,
+    study: String,
+    top: String,
+    timeline: String,
+    withdraw: String,
+    login: String,
+    register: String
   },
   data: function data() {
     return {
@@ -2067,7 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
     doLogout: function doLogout() {
       axios.post(this.logout).then(function (response) {
         setTimeout(function () {
-          window.location.href = '/top';
+          window.location.href = response.data;
         }, 1000);
       });
     }
@@ -2296,6 +2302,11 @@ function initialState() {
   props: {
     logout: String,
     mypage: String,
+    study: String,
+    post: String,
+    top: String,
+    timeline: String,
+    withdraw: String,
     flashMessage: String
   },
   data: function data() {
@@ -2405,7 +2416,7 @@ function initialState() {
       this.closeModal();
     },
     sendForm: function sendForm() {
-      axios.post('/study', this.request).then(function (response) {
+      axios.post(this.post, this.request).then(function (response) {
         setTimeout(function () {
           window.location.href = response.data;
         }, 100);
@@ -2418,7 +2429,7 @@ function initialState() {
     doLogout: function doLogout() {
       axios.post(this.logout).then(function (response) {
         setTimeout(function () {
-          window.location.href = '/top';
+          window.location.href = response.data;
         }, 100);
       });
     }
@@ -2797,8 +2808,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['studyRecords', 'auth_id'],
+  props: ['studyRecords', 'auth_id', 'favpost', 'update'],
   data: function data() {
     return {
       categories: [{
@@ -2823,7 +2836,6 @@ __webpack_require__.r(__webpack_exports__);
         isChecked: true
       }],
       formContent: '',
-      // totalRecordNum: this.studyRecords.length,
       showRecordNum: 10,
       currentPageNum: 1,
       ope_studyRecords: this.studyRecords,
@@ -2896,7 +2908,7 @@ __webpack_require__.r(__webpack_exports__);
     },
     favHandle: function favHandle(id) {
       this.toggleFavRecords(id);
-      axios.post('/timeline/favorite', {
+      axios.post(this.favpost, {
         fav_user_id: id
       });
     },
@@ -3007,7 +3019,8 @@ axios.defaults.headers.common = {
     user_detail: Object,
     fav_flg: Boolean,
     auth_id: Number,
-    study_id: Number
+    study_id: Number,
+    update: String
   },
   data: function data() {
     return {
@@ -3029,11 +3042,7 @@ axios.defaults.headers.common = {
       }
     },
     updateComment: function updateComment() {
-      axios.post('/timeline/update', this.request); // .then(function(response) {
-      //     console.log(response)
-      // }).catch(function(error) {
-      //     console.log(error)
-      // })
+      axios.post(this.update, this.request);
     },
     adjustHeight: function adjustHeight() {
       var textarea = this.$refs.adjust_textarea;
@@ -32114,7 +32123,16 @@ var render = function() {
     _c("nav", { staticClass: "l-header__nav", class: _vm.toggleNav }, [
       _vm.isLogin
         ? _c("ul", { staticClass: "l-header__nav__menu" }, [
-            _vm._m(0),
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.study }
+                },
+                [_vm._v("記録する")]
+              )
+            ]),
             _vm._v(" "),
             _c("li", { staticClass: "l-header__nav__menu__item" }, [
               _c(
@@ -32127,7 +32145,16 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(1),
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.timeline }
+                },
+                [_vm._v("学習記録一覧")]
+              )
+            ]),
             _vm._v(" "),
             _c("li", { staticClass: "l-header__nav__menu__item" }, [
               _c(
@@ -32146,17 +32173,53 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(2)
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.withdraw }
+                },
+                [_vm._v("退会")]
+              )
+            ])
           ])
         : _vm._e(),
       _vm._v(" "),
       !_vm.isLogin
         ? _c("ul", { staticClass: "l-header__nav__menu" }, [
-            _vm._m(3),
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.top }
+                },
+                [_vm._v("TOP")]
+              )
+            ]),
             _vm._v(" "),
-            _vm._m(4),
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.login }
+                },
+                [_vm._v("ログイン")]
+              )
+            ]),
             _vm._v(" "),
-            _vm._m(5)
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.register }
+                },
+                [_vm._v("会員登録")]
+              )
+            ])
           ])
         : _vm._e()
     ]),
@@ -32165,118 +32228,26 @@ var render = function() {
     _vm._v(" "),
     _c("div", [
       _vm.isLogin
-        ? _c("p", { staticClass: "l-header__icon" }, [_vm._m(6)])
+        ? _c("p", { staticClass: "l-header__icon" }, [
+            _c(
+              "a",
+              {
+                staticClass: "l-header__icon__element",
+                attrs: { href: _vm.study }
+              },
+              [
+                _c("i", {
+                  staticClass: "fa fa-clock-o",
+                  attrs: { "aria-hidden": "true" }
+                })
+              ]
+            )
+          ])
         : _vm._e()
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/study" }
-        },
-        [_vm._v("記録する")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/timeline" }
-        },
-        [_vm._v("学習記録一覧")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/withdraw" }
-        },
-        [_vm._v("退会")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/top" }
-        },
-        [_vm._v("TOP")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/login" }
-        },
-        [_vm._v("ログイン")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/register" }
-        },
-        [_vm._v("会員登録")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "a",
-      { staticClass: "l-header__icon__element", attrs: { href: "/study" } },
-      [
-        _c("i", {
-          staticClass: "fa fa-clock-o",
-          attrs: { "aria-hidden": "true" }
-        })
-      ]
-    )
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -32511,7 +32482,16 @@ var render = function() {
         _vm._v(" "),
         _c("nav", { staticClass: "l-header__nav", class: _vm.toggleNav }, [
           _c("ul", { staticClass: "l-header__nav__menu" }, [
-            _vm._m(0),
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.study }
+                },
+                [_vm._v("記録する")]
+              )
+            ]),
             _vm._v(" "),
             _c("li", { staticClass: "l-header__nav__menu__item" }, [
               _c(
@@ -32524,7 +32504,16 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(1),
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.timeline }
+                },
+                [_vm._v("学習記録一覧")]
+              )
+            ]),
             _vm._v(" "),
             _c("li", { staticClass: "l-header__nav__menu__item" }, [
               _c(
@@ -32543,7 +32532,16 @@ var render = function() {
               )
             ]),
             _vm._v(" "),
-            _vm._m(2)
+            _c("li", { staticClass: "l-header__nav__menu__item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "l-header__nav__menu__item__link",
+                  attrs: { href: _vm.withdraw }
+                },
+                [_vm._v("退会")]
+              )
+            ])
           ])
         ]),
         _vm._v(" "),
@@ -32681,53 +32679,7 @@ var render = function() {
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/study" }
-        },
-        [_vm._v("記録する")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/timeline" }
-        },
-        [_vm._v("学習記録一覧")]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "l-header__nav__menu__item" }, [
-      _c(
-        "a",
-        {
-          staticClass: "l-header__nav__menu__item__link",
-          attrs: { href: "/withdraw" }
-        },
-        [_vm._v("退会")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -32896,7 +32848,8 @@ var render = function() {
                     attrs: {
                       index: index,
                       auth_id: _vm.auth_id,
-                      study_id: studyRecord.id
+                      study_id: studyRecord.id,
+                      update: _vm.update
                     },
                     on: { "click-star": _vm.favHandle }
                   },

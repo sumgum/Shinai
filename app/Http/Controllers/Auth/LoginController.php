@@ -37,4 +37,10 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    // オーバーライド
+    protected function loggedOut($request)
+    {
+        return route('top.show');
+    }
 }

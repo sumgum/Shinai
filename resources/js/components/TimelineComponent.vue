@@ -19,7 +19,9 @@
                 :index="index"
                 :auth_id="auth_id"
                 :study_id="studyRecord.id"
-                @click-star="favHandle">
+                @click-star="favHandle"
+                :update="update"
+                >
                 </timeline-contents-component>
                 </transition-group>
 
@@ -36,7 +38,7 @@
 
 <script>
     export default {
-        props: ['studyRecords', 'auth_id'],
+        props: ['studyRecords', 'auth_id', 'favpost', 'update'],
         data: function() {
             return {
                 categories: [
@@ -46,7 +48,6 @@
                     {id: 3, name: 'etcRecords', text: 'その他', isChecked: true},
                 ],
                 formContent: '',
-                // totalRecordNum: this.studyRecords.length,
                 showRecordNum: 10,
                 currentPageNum: 1,
                 ope_studyRecords: this.studyRecords,
@@ -112,7 +113,7 @@
             },
             favHandle: function(id) {
                 this.toggleFavRecords(id)
-                axios.post('/timeline/favorite', {fav_user_id: id})
+                axios.post(this.favpost, {fav_user_id: id})
             },
             toggleFavRecords: function(id) {
                 this.ope_studyRecords.forEach(function(element, index, array) {

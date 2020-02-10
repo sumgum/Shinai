@@ -9,30 +9,30 @@
         <nav class="l-header__nav" :class="toggleNav">
             <ul class="l-header__nav__menu" v-if="isLogin">
                 <li class="l-header__nav__menu__item">
-                    <a class="l-header__nav__menu__item__link" href="/study">記録する</a>
+                    <a class="l-header__nav__menu__item__link" :href="study">記録する</a>
                 </li>
                 <li class="l-header__nav__menu__item">
                     <a class="l-header__nav__menu__item__link" :href="mypage">マイページ</a>
                 </li>
                 <li class="l-header__nav__menu__item">
-                    <a class="l-header__nav__menu__item__link" href="/timeline">学習記録一覧</a>
+                    <a class="l-header__nav__menu__item__link" :href="timeline">学習記録一覧</a>
                 </li>
                 <li class="l-header__nav__menu__item">
                     <a class="l-header__nav__menu__item__link" href="" @click.prevent="doLogout">ログアウト</a>
                 </li>
                 <li class="l-header__nav__menu__item">
-                    <a class="l-header__nav__menu__item__link" href="/withdraw">退会</a>
+                    <a class="l-header__nav__menu__item__link" :href="withdraw">退会</a>
                 </li>
             </ul>
             <ul class="l-header__nav__menu" v-if="!isLogin">
                 <li class="l-header__nav__menu__item">
-                    <a class="l-header__nav__menu__item__link" href="/top">TOP</a>
+                    <a class="l-header__nav__menu__item__link" :href="top">TOP</a>
                 </li>
                 <li class="l-header__nav__menu__item">
-                    <a class="l-header__nav__menu__item__link" href="/login">ログイン</a>
+                    <a class="l-header__nav__menu__item__link" :href="login">ログイン</a>
                 </li>
                 <li class="l-header__nav__menu__item">
-                    <a class="l-header__nav__menu__item__link" href="/register">会員登録</a>
+                    <a class="l-header__nav__menu__item__link" :href="register">会員登録</a>
                 </li>
             </ul>
         </nav>
@@ -40,7 +40,7 @@
         <h1 class="l-header__title">しないチェッカー</h1>
 
         <div>
-            <p class="l-header__icon" v-if="isLogin"><a href="/study" class="l-header__icon__element"><i class="fa fa-clock-o" aria-hidden="true"></i></a></p>
+            <p class="l-header__icon" v-if="isLogin"><a :href="study" class="l-header__icon__element"><i class="fa fa-clock-o" aria-hidden="true"></i></a></p>
         </div>
     </header>
 
@@ -52,6 +52,12 @@ export default {
         authcheck: Boolean,
         logout: String,
         mypage: String,
+        study: String,
+        top: String,
+        timeline: String,
+        withdraw: String,
+        login: String,
+        register: String,
     },
     data: function() {
         return {
@@ -68,7 +74,7 @@ export default {
             axios.post(this.logout)
             .then(function(response) {
                 setTimeout(() => {
-                    window.location.href = '/top'
+                    window.location.href = response.data
                 }, 1000);
             })
         },

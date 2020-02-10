@@ -43,6 +43,7 @@ axios.defaults.headers.common = {
             fav_flg: Boolean,
             auth_id: Number,
             study_id: Number,
+            update: String,
         },
         data: function() {
             return {
@@ -63,12 +64,7 @@ axios.defaults.headers.common = {
                 }
             },
             updateComment() {
-                axios.post('/timeline/update', this.request)
-                // .then(function(response) {
-                //     console.log(response)
-                // }).catch(function(error) {
-                //     console.log(error)
-                // })
+                axios.post(this.update, this.request)
             },
             adjustHeight() {
                 const textarea = this.$refs.adjust_textarea

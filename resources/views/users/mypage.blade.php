@@ -84,8 +84,7 @@
         @if($id == Auth::user()->id)
         <div class="p-container--config">
             <p><a class="p-container--config__element" href="{{route('profedit.show', ['id'=>Auth::user()->id])}}">プロフィール編集</a></p>
-            {{-- <p><a class="p-container--config__element" href="/password/reset/{{Auth::user()->id}}">パスワード変更</a></p> --}}
-            <p><a class="p-container--config__element" href="/password/reset">パスワード変更</a></p>
+            <p><a class="p-container--config__element" href="{{route('password.request')}}">パスワード変更</a></p>
             <p><a class="p-container--config__element" href="{{route('withdraw.show')}}">退会</a></p>
         </div>
         @endif

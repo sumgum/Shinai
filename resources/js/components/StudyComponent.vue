@@ -41,19 +41,19 @@
             <nav class="l-header__nav" :class="toggleNav">
                 <ul class="l-header__nav__menu">
                     <li class="l-header__nav__menu__item">
-                        <a class="l-header__nav__menu__item__link" href="/study">記録する</a>
+                        <a class="l-header__nav__menu__item__link" :href="study">記録する</a>
                     </li>
                     <li class="l-header__nav__menu__item">
                         <a class="l-header__nav__menu__item__link" :href="mypage">マイページ</a>
                     </li>
                     <li class="l-header__nav__menu__item">
-                        <a class="l-header__nav__menu__item__link" href="/timeline">学習記録一覧</a>
+                        <a class="l-header__nav__menu__item__link" :href="timeline">学習記録一覧</a>
                     </li>
                     <li class="l-header__nav__menu__item">
                         <a class="l-header__nav__menu__item__link" href="" @click.prevent="doLogout">ログアウト</a>
                     </li>
                     <li class="l-header__nav__menu__item">
-                        <a class="l-header__nav__menu__item__link" href="/withdraw">退会</a>
+                        <a class="l-header__nav__menu__item__link" :href="withdraw">退会</a>
                     </li>
                 </ul>
             </nav>
@@ -116,6 +116,11 @@ axios.defaults.headers.common = {
         props: {
             logout: String,
             mypage: String,
+            study: String,
+            post: String,
+            top: String,
+            timeline: String,
+            withdraw: String,
             flashMessage: String,
         },
         data: function() {
@@ -214,7 +219,7 @@ axios.defaults.headers.common = {
                 this.closeModal()
             },
             sendForm: function() {
-                axios.post('/study', this.request)
+                axios.post(this.post, this.request)
                 .then(function(response) {
                     setTimeout(function() {
                         window.location.href = response.data
@@ -230,7 +235,7 @@ axios.defaults.headers.common = {
                 axios.post(this.logout)
                 .then(function(response) {
                     setTimeout(() => {
-                        window.location.href = '/top'
+                        window.location.href = response.data
                     }, 100);
                 })
             },
