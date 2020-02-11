@@ -45855,13 +45855,13 @@ $(function () {
 
     fileReader.onload = function (event) {
       $img.attr('src', event.target.result).show();
-    }; // if(file) {
-    //     console.log(file);
-    //     fileReader.readAsDataURL(file);
-    // } else {
-    //     console.log('a');
-    // }
+    };
 
+    if (file) {
+      // console.log(file);
+      fileReader.readAsDataURL(file);
+    } else {// console.log('a');
+    }
   });
 });
 
