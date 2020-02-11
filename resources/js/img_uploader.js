@@ -22,15 +22,7 @@ $(function() {
         };
 
         if(file) {
-<<<<<<< HEAD
-            // console.log(file);
             fileReader.readAsDataURL(file);
-        } else {
-            // console.log('a');
-=======
-            fileReader.readAsDataURL(file);
-        } else {
->>>>>>> develop
         }
     });
 })
