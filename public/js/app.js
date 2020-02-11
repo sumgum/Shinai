@@ -45858,10 +45858,8 @@ $(function () {
     };
 
     if (file) {
-      // console.log(file);
       fileReader.readAsDataURL(file);
-    } else {// console.log('a');
-    }
+    } else {}
   });
 });
 
