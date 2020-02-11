@@ -103,7 +103,7 @@ axios.defaults.headers.common = {
                 }
             },
             mypageURL: function() {
-                let url = '/laravel/Shinai/public/mypage/' + String(this.user_id)
+                let url = '/Shinai/mypage/' + String(this.user_id)
                 return url
             },
             hasComment: function() {
