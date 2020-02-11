@@ -3074,11 +3074,13 @@ axios.defaults.headers.common = {
         if (this.user_detail.prof_image !== '') {
           return this.user_detail.prof_image;
         } else {
-          return 'storage/app/public/image/sample/sample.jpeg'; // return 'storage/image/sample/sample.jpeg'
+          // return 'storage/app/public/image/sample/sample.jpeg'
+          return 'storage/image/sample/sample.jpeg';
         }
       } else {
-          return 'storage/app/public/image/sample/sample.jpeg'; // return 'storage/image/sample/sample.jpeg'
-        }
+        // return 'storage/app/public/image/sample/sample.jpeg'
+        return 'storage/image/sample/sample.jpeg';
+      }
     },
     mypageURL: function mypageURL() {
       var url = '/Shinai/mypage/' + String(this.user_id);
