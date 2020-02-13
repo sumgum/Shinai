@@ -21,6 +21,9 @@
         color: $font-color_topic;
         text-decoration: none;
     }
+    &:focus {
+        outline: none;
+    }
     &--twitter {
         width: 100%;
     }

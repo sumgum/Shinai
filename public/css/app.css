@@ -11830,6 +11830,10 @@ a:hover {
   text-decoration: none;
 }
 
+.c-btn:focus {
+  outline: none;
+}
+
 .c-btn--twitter {
   width: 100%;
 }
